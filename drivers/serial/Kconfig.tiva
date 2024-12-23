@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig UART_TIVA
+	bool "TI Tiva serial driver"
+	default y
+ 	depends on DT_HAS_TI_TIVA_UART_ENABLED
+	select SERIAL_HAS_DRIVER
+	select SERIAL_SUPPORT_INTERRUPT
+	help
+	  This option enables the Ti Tiva serial driver.
+	  This specific driver can be used for the serial hardware
+	  available at the Texas Instrument LM3S6965 board.
+
+if UART_TIVA
+
+# ---------- Port 0 ----------
+
+config UART_TIVA_PORT_0
+	bool "Ti Tiva UART Port 0"
+	default y
+	help
+	  This tells the driver to configure the UART port at boot, depending on
+	  the additional configure options below.
+
+# ---------- Port 1 ----------
+
+config UART_TIVA_PORT_1
+	bool "Ti Tiva UART Port 1"
+	default y
+	help
+	  This tells the driver to configure the UART port at boot, depending on
+	  the additional configure options below.
+
+# ---------- Port 2 ----------
+
+config UART_TIVA_PORT_2
+	bool "Ti Tiva UART Port 2"
+	default y
+	help
+	  This tells the driver to configure the UART port at boot, depending on
+	  the additional configure options below.
+
+endif # UART_TIVA
